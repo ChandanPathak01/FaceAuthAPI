@@ -5,7 +5,7 @@ from .. import models, schemas, database, utils, auth
 router = APIRouter(prefix="/register", tags=["Register"])
 
 def get_db():
-    db = database.sessionLocal()
+    db = database.SessionLocal()
     try:
         yield db
     finally:
