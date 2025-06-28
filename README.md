@@ -23,25 +23,6 @@
 - ✅ Simple one-page web interface
 - ✅ Fast, reliable API for real-time face comparison
 
-
-## 📂 Project Structure
-
-FaceVerify/
-├── backend/
-│ ├── main.py # FastAPI app entrypoint
-│ ├── database.py # PostgreSQL database setup
-│ ├── models.py # SQLAlchemy models
-│ ├── schemas.py # Pydantic models for validation
-│ ├── auth.py # JWT token generation and verification
-│ ├── utils.py # Face encoding and matching logic
-│ └── routers/
-│ ├── register.py # User registration API
-│ └── match.py # Face matching API
-├── frontend/
-│ └── index.html # Simple HTML UI for register and match
-├── requirements.txt
-└── README.md
-
 ## 🧰 Installation
 ### ✅ Prerequisites
 
@@ -82,10 +63,12 @@ POST /login: Login using Aadhaar
 GET /users: Get all registered users (JWT protected)
 
 ✅ Example Use Case
-Admin registers a user with their Aadhaar and photo
-Later, the user uploads a different photo
-System checks the face and gives match percentage
-If match > threshold (e.g., 85%), allow access
+You need a JWT token on the UI to access the functionality.
+➤ Generate the token by running generate_token.py
+Admin registers a user with their Aadhaar number and photo
+Later, the user uploads a different photo for verification
+The system compares both faces and returns a match percentage
+If the match is above the threshold (e.g., 85%), the user is considered verified
 
 🔒 Authentication
 This project uses JWT (via python-jose) to protect sensitive endpoints.
